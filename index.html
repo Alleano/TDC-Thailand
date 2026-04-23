@@ -660,23 +660,7 @@
     <div class="reveal" style="position:relative;">
       <div style="position:absolute; top:-18px; left:-18px; right:18px; bottom:18px; border:1px solid var(--border2); z-index:0;"></div>
       <img id="founderPhoto" src="photo.png" style="width:100%; aspect-ratio:4/5; object-fit:cover; object-position:top center; position:relative; z-index:1; display:block;">
-      <script>
-        (function(){
-          var img=document.getElementById('founderPhoto');
-          var input=document.createElement('input');
-          input.type='file'; input.accept='image/*'; input.style.display='none';
-          document.body.appendChild(input);
-          var reader=new FileReader();
-          reader.onload=function(e){ img.src=e.target.result; wrapper.style.display='none'; };
-          var wrapper=document.createElement('div');
-          wrapper.style.cssText='position:absolute;inset:0;z-index:10;background:var(--gold-pale);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;cursor:pointer;border:2px dashed var(--gold);';
-          wrapper.innerHTML='<span style="font-size:2rem">📸</span><span style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);font-weight:500;">Click to upload photo</span>';
-          wrapper.onclick=function(){ input.click(); };
-          input.onchange=function(){ if(input.files[0]) reader.readAsDataURL(input.files[0]); };
-          img.parentNode.style.position='relative';
-          img.parentNode.appendChild(wrapper);
-        })();
-      </script>
+     
       <!-- Gold accent corner -->
       <div style="position:absolute; bottom:-12px; right:-12px; width:60px; height:60px; background:var(--gold); z-index:2; display:flex; align-items:center; justify-content:center;">
         <span style="color:white; font-size:1.4rem;">✦</span>
