@@ -652,45 +652,56 @@
   </div>
 </section>
 
-<!-- FOUNDER -->
-<section style="background:var(--white); padding:110px 60px;">
-  <div style="max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1.4fr; gap:90px; align-items:center;">
 
-    <!-- Photo -->
-    <div class="reveal" style="position:relative;">
-      <div style="position:absolute; top:-18px; left:-18px; right:18px; bottom:18px; border:1px solid var(--border2); z-index:0;"></div>
-      <img id="founderPhoto" src="photo1.png" style="width:100%; aspect-ratio:4/5; object-fit:cover; object-position:top center; position:relative; z-index:1; display:block;">
-     
-      <!-- Gold accent corner -->
-      <div style="position:absolute; bottom:-12px; right:-12px; width:60px; height:60px; background:var(--gold); z-index:2; display:flex; align-items:center; justify-content:center;">
-        <span style="color:white; font-size:1.4rem;">✦</span>
-      </div>
+<!-- FOUNDER -->
+<style>
+.founder-section { background: var(--white); padding: 110px 60px; }
+.founder-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.4fr; gap: 90px; align-items: center; }
+.founder-photo-wrap { position: relative; }
+.founder-photo-frame { position: absolute; top: -18px; left: -18px; right: 18px; bottom: 18px; border: 1px solid var(--border2); z-index: 0; }
+.founder-photo-wrap img { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: top center; position: relative; z-index: 1; display: block; }
+.founder-gold-corner { position: absolute; bottom: -12px; right: -12px; width: 60px; height: 60px; background: var(--gold); z-index: 2; display: flex; align-items: center; justify-content: center; }
+.founder-gold-corner span { color: white; font-size: 1.4rem; }
+.founder-subtitle { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 32px; }
+.founder-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-style: italic; color: var(--ink2); line-height: 1.75; margin-bottom: 28px; border-left: 3px solid var(--gold); padding-left: 24px; }
+.founder-body { font-size: 0.82rem; color: var(--body); line-height: 1.9; font-weight: 300; margin-bottom: 18px; }
+.founder-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.founder-pill { font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--border2); padding: 9px 18px; font-weight: 500; }
+
+@media (max-width: 900px) {
+  .founder-section { padding: 64px 20px; }
+  .founder-grid { grid-template-columns: 1fr; gap: 36px; }
+  .founder-photo-wrap { width: 100%; max-width: 280px; margin: 0 auto; }
+  .founder-photo-frame { top: -10px; left: -10px; right: 10px; bottom: 10px; }
+  .founder-photo-wrap img { aspect-ratio: 3/4; }
+  .founder-gold-corner { width: 44px; height: 44px; bottom: -8px; right: -8px; }
+  .founder-gold-corner span { font-size: 1rem; }
+  .founder-quote { font-size: 1rem; line-height: 1.65; }
+  .founder-pills { flex-direction: column; }
+  .founder-pill { font-size: 0.6rem; padding: 8px 14px; }
+}
+</style>
+
+<section class="founder-section">
+  <div class="founder-grid">
+
+    <div class="founder-photo-wrap reveal">
+      <div class="founder-photo-frame"></div>
+      <img src="photo1.png" alt="TOUCH Suppartuch – Founder">
+      <div class="founder-gold-corner"><span>✦</span></div>
     </div>
 
-    <!-- Text -->
     <div class="reveal">
       <p class="section-tag">Meet the Founder</p>
       <h2 class="section-title" style="margin-bottom:10px;">TOUCH <em>Suppartuch</em></h2>
-      <p style="font-size:0.62rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); font-weight:500; margin-bottom:32px;">
-        Certified Medical Interpreter · Bangkok, Thailand
-      </p>
-
-      <p style="font-family:'Cormorant Garamond',serif; font-size:1.35rem; font-style:italic; color:var(--ink2); line-height:1.75; margin-bottom:28px; border-left:3px solid var(--gold); padding-left:24px;">
-        "I named this company TOUCH because that's who I am. To me, care isn't a service — it's a feeling. Every patient I walk alongside deserves to feel it."
-      </p>
-
-      <p style="font-size:0.82rem; color:var(--body); line-height:1.9; font-weight:300; margin-bottom:18px;">
-        Born and raised in Bangkok, I built TOUCH from a simple belief: that world-class dental care should be accessible — and that navigating a foreign medical system should never feel lonely or overwhelming.
-      </p>
-      <p style="font-size:0.82rem; color:var(--body); line-height:1.9; font-weight:300; margin-bottom:32px;">
-        As a qualified medical interpreter and a proud local Thai, I bridge the gap between international patients and Thailand's finest dental clinics. I know the hospitals, I know the doctors, and most importantly — I know how to make you feel at home from the moment you arrive.
-      </p>
-
-      <!-- Credential pills -->
-      <div style="display:flex; flex-wrap:wrap; gap:10px;">
-        <span style="font-size:0.62rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); border:1px solid var(--border2); padding:9px 18px; font-weight:500;">🎓 Certified Medical Interpreter</span>
-        <span style="font-size:0.62rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); border:1px solid var(--border2); padding:9px 18px; font-weight:500;">🇹🇭 Bangkok Local</span>
-        <span style="font-size:0.62rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); border:1px solid var(--border2); padding:9px 18px; font-weight:500;">🤝 Patient Advocate</span>
+      <p class="founder-subtitle">Certified Medical Interpreter · Bangkok, Thailand</p>
+      <p class="founder-quote">"I named this company TOUCH because that's who I am. To me, care isn't a service — it's a feeling. Every patient I walk alongside deserves to feel it."</p>
+      <p class="founder-body">Born and raised in Bangkok, I built TOUCH from a simple belief: that world-class dental care should be accessible — and that navigating a foreign medical system should never feel lonely or overwhelming.</p>
+      <p class="founder-body">As a qualified medical interpreter and a proud local Thai, I bridge the gap between international patients and Thailand's finest dental clinics. I know the hospitals, I know the doctors, and most importantly — I know how to make you feel at home from the moment you arrive.</p>
+      <div class="founder-pills">
+        <span class="founder-pill">🎓 Certified Medical Interpreter</span>
+        <span class="founder-pill">🇹🇭 Bangkok Local</span>
+        <span class="founder-pill">🤝 Patient Advocate</span>
       </div>
     </div>
 
