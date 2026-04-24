@@ -864,16 +864,16 @@
       <div class="form-row">
         <div class="form-group">
           <label>First Name</label>
-          <input type="text" placeholder="Your name">
+         <input id="f_name" type="text" placeholder="Your name">
         </div>
         <div class="form-group">
           <label>Country</label>
-          <input type="text" placeholder="Australia, UK...">
+          <input id="f_country" type="text" placeholder="Australia, UK...">
         </div>
       </div>
       <div class="form-group">
         <label>Email Address</label>
-        <input type="email" placeholder="your@email.com">
+        <input id="f_email" type="email" placeholder="your@email.com">
       </div>
       <div class="form-group">
         <label>WhatsApp Number</label>
@@ -1075,7 +1075,7 @@
       </div>
       <div class="form-group">
         <label>Treatment Interest</label>
-        <select>
+        <select id="f_treatment">
           <option value="">Select a service...</option>
           <option>Dental Implants</option>
           <option>Veneers & Smile Design</option>
@@ -1088,7 +1088,7 @@
       </div>
       <div class="form-group">
         <label>Tell us more (optional)</label>
-        <textarea rows="4" placeholder="Describe your dental situation or goals..."></textarea>
+        <textarea id="f_message" rows="4" placeholder="Describe your dental situation or goals..."></textarea>
       </div>
       <button class="form-submit" id="submitBtn">Send Enquiry →</button>
       <p id="formMsg" style="display:none;margin-top:12px;font-size:0.78rem;color:var(--gold);letter-spacing:0.08em;"></p>
@@ -1101,16 +1101,14 @@
     e.preventDefault();
     const btn = this;
     const msg = document.getElementById('formMsg');
-    const inputs = document.querySelectorAll('.contact-form input, .contact-form select, .contact-form textarea');
-    const data = {
-      name: inputs[0].value,
-      country: inputs[1].value,
-      email: inputs[2].value,
-      whatsapp: inputs[3].value,
-      treatment: inputs[4].value,
-      message: inputs[5].value
-    };
-    if (!data.name || !data.email) {
+    const name      = document.getElementById('f_name').value.trim();
+    const country   = document.getElementById('f_country').value.trim();
+    const email     = document.getElementById('f_email').value.trim();
+    const code      = document.getElementById('countryCode').value;
+    const number    = document.getElementById('waNumber').value.trim();
+    const treatment = document.getElementById('f_treatment').value;
+    const message   = document.getElementById('f_message').value.trim();
+    if (!name || !email) {
       msg.style.display = 'block'; msg.style.color = '#c0392b';
       msg.textContent = 'Please fill in your name and email.'; return;
     }
@@ -1119,19 +1117,20 @@
       const res = await fetch('https://formspree.io/f/mbdqqoqq', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(data)
+        body: JSON.stringify({
+          name, country, email,
+          whatsapp: code + ' ' + number,
+          treatment, message
+        })
       });
       if (res.ok) {
-        msg.style.display = 'block'; msg.style.color = 'var(--gold)';
+        msg.style.display = 'block'; msg.style.color = '#A8844A';
         msg.textContent = '✦ Thank you! TOUCH will be in touch within 24 hours.';
-        inputs.forEach(i => i.value = '');
         btn.textContent = 'Sent ✓';
-      } else {
-        throw new Error();
-      }
+      } else { throw new Error(); }
     } catch {
       msg.style.display = 'block'; msg.style.color = '#c0392b';
-      msg.textContent = 'Something went wrong. Please email us directly at info@tdconcierge.com';
+      msg.textContent = 'Something went wrong. Please email info@tdconcierge.com directly.';
       btn.textContent = 'Send Enquiry →'; btn.disabled = false;
     }
   });
